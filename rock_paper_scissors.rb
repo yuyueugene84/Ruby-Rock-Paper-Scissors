@@ -77,21 +77,14 @@ while playing == true
   puts "Play again?"
   choice_player == gets.chomp
 
-  #something wrong over here
-  #while !['y', 'n'].include?(choice_player.downcase)
-  while choice_player.downcase != "y" || choice_player.downcase != "n"
+  if !["y","n"].include?(choice_player.downcase)
+  #if choice_player.downcase != "y" || choice_player.downcase != "n"
+    begin
       puts "Please enter one of the following choices:(Y/N)"
       choice_player = gets.chomp
-      #binding.pry
-      if choice_player.downcase == "y"
-        playing == true
-        break
-      elsif choice_player.downcase == "n"
-        playing == false
-        break
-      end
+    end while !["y","n"].include?(choice_player.downcase)
   end
 
-  break if playing == false
+  break if choice_player == "n"
 
 end
