@@ -28,12 +28,12 @@ def compare(player, computer)
     elsif computer == "p"
       return "You lose!"
     elsif computer == "s"
-      return "You win!"
+      return "You won!"
     end
 
   elsif player == "p"
     if computer == "r"
-      return "You win!"
+      return "You won!"
     elsif computer == "p"
       return "It's a tie!"
     elsif computer == "s"
@@ -44,7 +44,7 @@ def compare(player, computer)
     if computer == "r"
       return "You lose!"
     elsif computer == "p"
-      return "You win!"
+      return "You won!"
     elsif computer == "s"
       return "It's a tie!"
     end
@@ -52,13 +52,12 @@ def compare(player, computer)
 
 end
 
-
+#-------------------------Main program starts here-----------------------------------
 puts "Lets play Paper Rock Scissors!"
 playing = true
 
-
 while playing == true
-  puts "Please choose one: (P/R/S)"
+  puts "Cchoose one: (P/R/S)"
   choice_player = gets.chomp
 
   while !["r", "s", "p"].include?(choice_player.downcase)
@@ -68,17 +67,17 @@ while playing == true
   end
 
   rand_num = rand(1..3) #generate a random number
+
   choice_computer = rand2choice(rand_num) #convert number into a choice
 
   msg = compare(choice_player, choice_computer) #call compare method
 
   puts "You choose #{choice2word(choice_player)}, the computer choose #{choice2word(choice_computer)}, #{msg}" #print out message to user
 
-  puts "Play again?"
-  choice_player == gets.chomp
+  puts "Play again? (Y/N)"
+  choice_player = gets.chomp
 
   if !["y","n"].include?(choice_player.downcase)
-  #if choice_player.downcase != "y" || choice_player.downcase != "n"
     begin
       puts "Please enter one of the following choices:(Y/N)"
       choice_player = gets.chomp
